@@ -16,8 +16,9 @@ public abstract class UserAuthenticator implements UserService {
         if (isPasswordCorrect(user, password)) {
             sessionManager.setCurrentUser(user);
             return user;
+        }else {
+            throw new AuthenticationException();
         }
-        return null;
     }
 
 
